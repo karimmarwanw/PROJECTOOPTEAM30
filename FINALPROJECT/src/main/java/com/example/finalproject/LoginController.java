@@ -22,7 +22,6 @@ public class LoginController extends Application {
     private PasswordField passwordField;
     private Label loginFeedbackLabel;
     private Hyperlink signUpLink;
-
     @Override
     public void start(Stage primaryStage) {
 
