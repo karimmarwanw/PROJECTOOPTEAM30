@@ -24,32 +24,26 @@ public class Database {
         orders.add(order);
     }
 
-    static Category c1 = new Category("Laptops", "devices","D:\\Uni\\OOP\\FINALPROJECT v2\\FINALPROJECT(adam)\\FINALPROJECT\\src\\products\\Laqptops.jpeg");
+    static Category c1 = new Category("Laptops", "devices","C:\\Users\\karim\\OneDrive\\Desktop\\PROJECTOOPTEAM30\\PROJECTOOPTEAM30\\FINALPROJECT\\src\\products\\Laqptops.jpeg");
     static item p1 = new item("dell laptop", 1000, c1, "D:\\Uni\\OOP\\FINALPROJECT\\src\\products\\images.jpeg");
     static item p2 = new item("macbook", 2000, c1, "D:\\Uni\\OOP\\FINALPROJECT\\src\\products\\download (1).jpeg");
 
-    static Category c2 = new Category("Mobiles", "smart phones","D:\\Uni\\OOP\\FINALPROJECT v2\\FINALPROJECT(adam)\\FINALPROJECT\\src\\products\\mobiles.jpg");
+    static Category c2 = new Category("Mobiles", "smart phones","C:\\Users\\karim\\OneDrive\\Desktop\\PROJECTOOPTEAM30\\PROJECTOOPTEAM30\\FINALPROJECT\\src\\products\\mobiles.jpg");
     static item p3 = new item("samsung", 500, c2, "D:\\Uni\\OOP\\FINALPROJECT\\src\\products\\download (3).jpeg");
     static item p4 = new item("iphone", 750, c2, "D:\\Uni\\OOP\\FINALPROJECT\\src\\products\\download (2).jpeg");
 
-    static Category c3 = new Category("Mouses", "accessories","D:\\Uni\\OOP\\FINALPROJECT v2\\FINALPROJECT(adam)\\FINALPROJECT\\src\\products\\mouse.jpg");
+    static Category c3 = new Category("Mouses", "accessories","C:\\Users\\karim\\OneDrive\\Desktop\\PROJECTOOPTEAM30\\PROJECTOOPTEAM30\\FINALPROJECT\\src\\products\\accessories.jpeg");
     static item p5 = new item("HP mouse", 100, c3, "D:\\Uni\\OOP\\FINALPROJECT\\src\\products\\images (1).jpeg");
     static item p6 = new item("apple mouse", 200, c3, "D:\\Uni\\OOP\\FINALPROJECT\\src\\products\\download (4).jpeg");
 
-    static Category c4 = new Category("Keyboards", "keyboards","D:\\Uni\\OOP\\FINALPROJECT v2\\FINALPROJECT(adam)\\FINALPROJECT\\src\\products\\keyboards.jpg");
+    static Category c4 = new Category("Keyboards", "keyboards","C:\\Users\\karim\\OneDrive\\Desktop\\PROJECTOOPTEAM30\\PROJECTOOPTEAM30\\FINALPROJECT\\src\\products\\keyboards.jpg");
     static item p7 = new item("HP keyboard", 150, c4, "D:\\Uni\\OOP\\FINALPROJECT\\src\\products\\download (5).jpeg");
     static item p8 = new item("apple keyboard", 200, c4, "D:\\Uni\\OOP\\FINALPROJECT\\src\\products\\download.png");
 
-    static Category c5 = new Category("Headphones", "headphones","D:\\Uni\\OOP\\FINALPROJECT v2\\FINALPROJECT(adam)\\FINALPROJECT\\src\\products\\headphones.jpg");
+    static Category c5 = new Category("Headphones", "headphones","C:\\Users\\karim\\OneDrive\\Desktop\\PROJECTOOPTEAM30\\PROJECTOOPTEAM30\\FINALPROJECT\\src\\products\\headphones.jpg");
     static item p9 = new item("sony headphones", 300, c5, "D:\\Uni\\OOP\\FINALPROJECT\\src\\products\\download (6).jpeg");
     static item p10 = new item("apple headphones", 500, c5, "D:\\Uni\\OOP\\FINALPROJECT\\src\\products\\download (7).jpeg");
 
-    static Category c6 = new Category("in sale", "sale","D:\\Uni\\OOP\\FINALPROJECT\\src\\theme\\images__1_-removebg-preview.png");
-    static ProductSale s1 = new ProductSale("hp laptop","Sale","D:\\Uni\\OOP\\FINALPROJECT\\src\\theme\\hp laptop.jpeg",16000,10000);
-    static ProductSale s2 = new ProductSale("hp mouse","Sale","D:\\Uni\\OOP\\FINALPROJECT\\src\\products\\mouse.jpg",5000,1000);
-    static ProductSale s3 = new ProductSale("airpods","Sale","D:\\Uni\\OOP\\FINALPROJECT\\src\\products\\airpods.jpeg",3000,2500);
-    static ProductSale s4 = new ProductSale("black keyboard","Sale","D:\\Uni\\OOP\\FINALPROJECT\\src\\products\\keyboard.jpg",2500,1500);
-    static ProductSale s5 = new ProductSale("black keyboard","Sale","D:\\Uni\\OOP\\FINALPROJECT\\src\\products\\keyboard.jpg",2500,1500);
 
     private static boolean isInitialized = false;
 
@@ -73,7 +67,7 @@ public class Database {
         categories.add(c3);
         categories.add(c4);
         categories.add(c5);
-        categories.add(c6);
+
 
         items.add(p1);
         items.add(p2);
@@ -86,11 +80,6 @@ public class Database {
         items.add(p9);
         items.add(p10);
 
-        sale.add(s1);
-        sale.add(s2);
-        sale.add(s3);
-        sale.add(s4);
-        sale.add(s5);
 
         admins.add(new Admin("adam", "511", "2004-11-05", "ceo", 40));
         admins.add(new Admin("sameh", "2112", "2004-12-21", "cfo", 35));

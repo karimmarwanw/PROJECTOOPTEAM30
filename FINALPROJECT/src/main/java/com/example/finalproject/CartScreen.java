@@ -52,7 +52,7 @@ public class CartScreen extends Application {
         });
 
         ComboBox<String> paymentMethodComboBox = new ComboBox<>();
-        paymentMethodComboBox.getItems().addAll("Credit Card", "Cash on Delivery");
+        paymentMethodComboBox.getItems().addAll("Cash on delivery");
         paymentMethodComboBox.setPromptText("Select Payment Method");
 
         Button checkoutButton = new Button("Checkout");

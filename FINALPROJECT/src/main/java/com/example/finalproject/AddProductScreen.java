@@ -37,6 +37,7 @@ public class AddProductScreen extends Application {
         for (Category category : Database.categories) {
             categoryComboBox.getItems().add(category.getName());
         }
+
         Label imagePathLabel = new Label("Image Path:");
         TextField imagePathField = new TextField();
 
@@ -45,17 +46,27 @@ public class AddProductScreen extends Application {
             String name = nameField.getText();
             int stock = Integer.parseInt(stockField.getText());
             double price = Double.parseDouble(priceField.getText());
-            String category = categoryComboBox.getValue();
+            String categoryName = categoryComboBox.getValue();
             String imagePath = imagePathField.getText();
 
-            // Create a new product item
-            item newItem = new item(name, price, category, imagePath);
+            // Find the Category object by name
+            Category category = Database.categories.stream()
+                    .filter(cat -> cat.getName().equals(categoryName))
+                    .findFirst()
+                    .orElse(null);
 
-            // Add the product to the database
-            Database.items.add(newItem);
+            if (category != null) {
+                // Create a new product item
+                item newItem = new item(name, price, category, imagePath);
 
-            // Print confirmation
-            System.out.println("Product added: " + name + ", Stock: " + stock + ", Price: " + price + ", Category: " + category + ", Image Path: " + imagePath);
+                // Add the product to the database
+                Database.items.add(newItem);
+
+                // Print confirmation
+                System.out.println("Product added: " + name + ", Stock: " + stock + ", Price: " + price + ", Category: " + categoryName + ", Image Path: " + imagePath);
+            } else {
+                System.out.println("Category not found: " + categoryName);
+            }
         });
 
         Button backButton = new Button("Back");

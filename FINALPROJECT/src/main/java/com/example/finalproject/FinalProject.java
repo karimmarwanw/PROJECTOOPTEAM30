@@ -1,4 +1,5 @@
 // FinalProject.java
+// main screen for customers
 package com.example.finalproject;
 
 import Entity.Cart;
@@ -14,7 +15,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
-import javafx.scene.effect.ColorAdjust;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
@@ -54,31 +54,6 @@ public class FinalProject extends Application {
         centerImageView.setFitWidth(screenWidth * 0.1);
         centerImageView.setFitHeight(screenHeight * 0.1);
         centerImageView.setPreserveRatio(true);
-
-        // ------------------- Sale Image (Top-Right Corner with Click Effect) ---------------------
-        Image saleImage = new Image("D:\\Uni\\OOP\\FINALPROJECT\\src\\theme\\images__1_-removebg-preview.png");
-        ImageView saleImageView = new ImageView(saleImage);
-        saleImageView.setFitWidth(screenWidth * 0.15);
-        saleImageView.setFitHeight(screenHeight * 0.1);
-        saleImageView.setPreserveRatio(true);
-
-        ColorAdjust darkEffect = new ColorAdjust();
-        darkEffect.setBrightness(-0.5);
-
-        saleImageView.setOnMouseEntered(event -> saleImageView.setEffect(darkEffect));
-        saleImageView.setOnMouseExited(event -> saleImageView.setEffect(null));
-
-        saleImageView.setOnMouseClicked(event -> {
-            try {
-                Sale saleScreen = new Sale();
-                saleScreen.start(stage);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        });
-
-        StackPane.setAlignment(saleImageView, Pos.TOP_RIGHT);
-        StackPane.setMargin(saleImageView, new Insets(10, 10, 0, 0));
 
         // ------------------- Search Bar ---------------------
         ComboBox<String> searchBar = new ComboBox<>();
@@ -155,7 +130,7 @@ public class FinalProject extends Application {
 
         // ------------------- Layout Setup ---------------------
         StackPane bannerPane = new StackPane();
-        bannerPane.getChildren().addAll(bannerImageView, centerImageView, saleImageView);
+        bannerPane.getChildren().addAll(bannerImageView, centerImageView);
 
         VBox searchBox = new VBox(10);
         searchBox.setAlignment(Pos.TOP_LEFT);
@@ -229,7 +204,7 @@ public class FinalProject extends Application {
         productGrid.setAlignment(Pos.CENTER);
 
         List<item> products = Database.items.stream()
-                .filter(product -> product.getCategory().equals(category))
+                .filter(product -> product.getCategory() != null && product.getCategory().equals(category))
                 .toList();
 
         int column = 0;

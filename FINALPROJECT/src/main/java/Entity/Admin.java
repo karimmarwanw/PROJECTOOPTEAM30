@@ -63,8 +63,14 @@ public class Admin extends Person {
     public void getTotalSales() {
         double totalSales = 0;
         for (Order order : Database.orders) {
-            for (item item : order.getItems()) {
-                totalSales += item.getPrice();
+            for (String itemName : order.getItems()) {
+                item item = Database.items.stream()
+                        .filter(it -> it.getName().equals(itemName))
+                        .findFirst()
+                        .orElse(null);
+                if (item != null) {
+                    totalSales += item.getPrice();
+                }
             }
         }
         System.out.println("Total sales: $" + totalSales);
@@ -89,8 +95,14 @@ public class Admin extends Person {
         for (Order order : Database.orders) {
             System.out.println("Order ID: " + order.getOrderId() + ", Customer Username: " + order.getCustomer().getUsername());
             System.out.println("Items in this order:");
-            for (item orderItem : order.getItems()) {
-                System.out.println("Item Name: " + orderItem.getName() + ", Price: $" + orderItem.getPrice());
+            for (String itemName : order.getItems()) {
+                item orderItem = Database.items.stream()
+                        .filter(it -> it.getName().equals(itemName))
+                        .findFirst()
+                        .orElse(null);
+                if (orderItem != null) {
+                    System.out.println("Item Name: " + orderItem.getName() + ", Price: $" + orderItem.getPrice());
+                }
             }
         }
     }
@@ -177,9 +189,8 @@ public class Admin extends Person {
     }
 
     private boolean isValidImagePath(String path) {
-        return path != null && path.matches("src/product_images/default.jpg\";");
+        return path != null && path.matches(".*\\.(jpg|jpeg|png)$");
     }
-
 
     private boolean isValidPhoneNumber(String phoneNumber) {
         return phoneNumber != null && phoneNumber.matches("^\\d{10,15}$");

@@ -2,18 +2,16 @@ package Entity;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class Order {
     private int orderId;
     private Customer customer;
     private List<item> items;
     private String paymentMethod;
-    private double totalCost=0.0;
+    private double totalCost = 0.0;
     private static final double DELIVERY_FEE = 75.0;
 
     public Order(int orderId, Customer customer, List<item> items) {
-
         for (item currentItem : items) {
             totalCost += currentItem.getPrice();
         }
@@ -35,7 +33,6 @@ public class Order {
     }
 
     public Order() {
-
     }
 
     public int getOrderId() {
@@ -46,12 +43,15 @@ public class Order {
         return customer;
     }
 
-    public List<item> getItems() {
-        return items;
+    public List<String> getItems() {
+        List<String> itemNames = new ArrayList<>();
+        for (item currentItem : items) {
+            itemNames.add(currentItem.getName());
+        }
+        return itemNames;
     }
 
     public double getTotalCost() {
         return totalCost;
     }
-
 }

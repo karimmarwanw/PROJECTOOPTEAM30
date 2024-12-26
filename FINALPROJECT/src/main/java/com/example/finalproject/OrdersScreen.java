@@ -20,9 +20,10 @@ public class OrdersScreen extends Application {
         // Retrieve orders from the database and display them
         for (Order order : Database.orders) {
             String orderDetails = "Order ID: " + order.getOrderId() +
-                                  ", Customer: " + order.getCustomer().getUsername() +
                                   ", Total Cost: $" + order.getTotalCost() +
-                                  ", Payment Method: " + order.getPaymentMethod();
+                                  ", Payment Method: " + order.getPaymentMethod()
+                                    + ", Items: " + order.getItems();
+
             ordersListView.getItems().add(orderDetails);
         }
 
